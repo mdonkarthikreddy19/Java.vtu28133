@@ -1,0 +1,62 @@
+import java.util.*;
+
+class Codechef {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+
+        int T = sc.nextInt();
+
+        while (T-- > 0) {
+            String s = sc.next();
+            int n = s.length();
+
+            int[] first = new int[26];
+            int[] second = new int[26];
+
+            // First half
+            for (int i = 0; i < n / 2; i++) {
+                first[s.charAt(i) - 'a']++;
+            }
+
+            // Starting index of second half
+            int start = (n % 2 == 0) ? n / 2 : n / 2 + 1;
+
+            // Second half
+            for (int i = start; i < n; i++) {
+                second[s.charAt(i) - 'a']++;
+            }
+
+            if (Arrays.equals(first, second)) {
+                System.out.println("YES");
+            } else {
+                System.out.println("NO");
+            }
+        }
+
+        sc.close();
+    }
+}
+
+
+
+output:-
+Status :Successfully executed
+Time:
+0.0700 secs
+Memory:
+42.476 Mb
+Sample Input
+6
+gaga
+abcde
+rotor
+xyzxy
+abbaab
+ababc
+Your Output
+YES
+NO
+YES
+YES
+NO
+NO
